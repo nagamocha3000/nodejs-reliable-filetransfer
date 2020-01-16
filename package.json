@@ -1,0 +1,10 @@
+{
+    "name": "file_transfer_2.0",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "sender": "node ./sender/sender.js",
+        "receiver": "rm -rf ./receiver/files/* && node ./receiver/receiver.js"
+    }
+}
