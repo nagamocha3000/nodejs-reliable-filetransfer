@@ -4,6 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
+        "init": "mkdir ./receiver/files",
         "sender": "node ./sender/sender.js",
         "receiver": "rm -rf ./receiver/files/* && node ./receiver/receiver.js"
     }
