@@ -8,7 +8,17 @@ const filesDir = path.join(__dirname, "files");
 
 const server = net.createServer();
 server.on("connection", socket => {
-    const fileReadStream = fs.createReadStream(path.join(filesDir, "file.txt"));
+    const header = {
+        fileName: "file.txt",
+        fileHash:
+            "50fe824f6cb6b0756df4a4ce786396384aa33b0b1208af74ca23b30f7ff83f22",
+        fileSize: 983
+    };
+    socket.write(JSON.stringify(header));
+    socket.write("\n");
+    const fileReadStream = fs.createReadStream(
+        path.join(filesDir, header.fileName)
+    );
     fileReadStream.pipe(socket);
     fileReadStream.on("end", () => {
         socket.end();
